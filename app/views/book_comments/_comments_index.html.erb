@@ -1,0 +1,8 @@
+<div class="comments">
+  <% book.book_comments.each do |book_comment| %>
+    <p><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg" %></p>
+    <%= book_comment.user.name %>
+    <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= book_comment.comment %>
+    <%= link_to "削除", book_book_comment_path(book_comment.book.id, book_comment.id), method: :delete %>
+  <% end %>
+</div>
